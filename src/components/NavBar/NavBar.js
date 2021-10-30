@@ -77,7 +77,12 @@ const NavBar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/BaxanAcharya/panchashil-result-generator/blob/main/src/assets/excel/sample.xlsx?raw=true"
+                  className="nav-link"
+                >
                   Download Sample
                 </a>
               </li>
