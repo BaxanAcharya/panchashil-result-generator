@@ -3,6 +3,7 @@ import * as XLSX from "xlsx";
 import LargeLogo from "../../assets/img/Largelogo.png";
 import CircleLogo from "../../assets/img/logo.png";
 import ReactToPrint from "react-to-print";
+import { grade } from "../../utils/Grade";
 
 const One = () => {
   const [items, setItems] = useState(null);
@@ -321,65 +322,65 @@ const ComponentToPrint = React.forwardRef(
             <tbody>
               <tr>
                 <th>English</th>
-                <th>{index.English}</th>
+                <th>{grade(index.English, 100)}</th>
               </tr>
               <tr>
                 <th>Nepali</th>
-                <th>{index.Nepali}</th>
+                <th>{grade(index.Nepali, 100)}</th>
               </tr>
 
               <tr>
                 <th>Math</th>
-                <th>{index.Math}</th>
+                <th>{grade(index.Math, 100)}</th>
               </tr>
 
               <tr>
                 <th>Scirence</th>
-                <th>{index.Science}</th>
+                <th>{grade(index.Science, 100)}</th>
               </tr>
               <tr>
                 <th>Serofero</th>
-                <th>{index.Serofero}</th>
+                <th>{grade(index.Serofero, 100)}</th>
               </tr>
 
               <tr>
                 <th>Computer</th>
-                <th>{index.Computer}</th>
+                <th>{grade(index.Computer, 50)}</th>
               </tr>
 
               <tr>
                 <th>Moral</th>
-                <th>{index.Moral}</th>
+                <th>{grade(index.Moral, 50)}</th>
               </tr>
 
               <tr>
                 <th>Grammer</th>
-                <th>{index.Grammer}</th>
+                <th>{grade(index.Grammer, 50)}</th>
               </tr>
 
               <tr>
                 <th>Gk</th>
-                <th>{index.Gk}</th>
+                <th>{grade(index.Gk, 50)}</th>
               </tr>
 
               <tr>
                 <th>Drawing</th>
-                <th>{index.Drawing}</th>
+                <th>{grade(index.Drawing, 10)}</th>
               </tr>
 
               <tr>
                 <th>Dictation</th>
-                <th>{index.Dictation}</th>
+                <th>{grade(index.Dictation, 20)}</th>
               </tr>
 
               <tr>
                 <th>Writing</th>
-                <th>{index.Writing}</th>
+                <th>{grade(index.Writing, 20)}</th>
               </tr>
 
               <tr>
                 <th>Hygiene</th>
-                <th>{index.Hygiene}</th>
+                <th>{grade(index.Hygiene, 50)}</th>
               </tr>
             </tbody>
           </table>

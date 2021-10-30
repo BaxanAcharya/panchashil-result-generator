@@ -3,6 +3,7 @@ import * as XLSX from "xlsx";
 import LargeLogo from "../../assets/img/Largelogo.png";
 import CircleLogo from "../../assets/img/logo.png";
 import ReactToPrint from "react-to-print";
+import { grade } from "../../utils/Grade";
 
 const Jkga = () => {
   const [items, setItems] = useState(null);
@@ -52,6 +53,7 @@ const Jkga = () => {
       setItems(d);
     });
   };
+
   return (
     <div>
       <div className="d-flex align-items-center justify-content-center mt-5">
@@ -308,49 +310,49 @@ const ComponentToPrint = React.forwardRef(
             <thead>
               <tr>
                 <th scope="col">Subject</th>
-                <th scope="col">Marks</th>
+                <th scope="col">Grade/GPA</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th>English</th>
-                <th>{index.English}</th>
+                <th>{grade(index.English, 100)}</th>
               </tr>
               <tr>
                 <th>English Oral</th>
-                <th>{index.EnglishOral}</th>
+                <th>{grade(index.EnglishOral, 50)}</th>
               </tr>
               <tr>
                 <th>Nepali</th>
-                <th>{index.Nepali}</th>
+                <th>{grade(index.Nepali, 100)}</th>
               </tr>
               <tr>
                 <th>Nepali Oral</th>
-                <th>{index.NepaliOral}</th>
+                <th>{grade(index.NepaliOral, 50)}</th>
               </tr>
               <tr>
                 <th>Math</th>
-                <th>{index.Math}</th>
+                <th>{grade(index.Math, 100)}</th>
               </tr>
               <tr>
                 <th>Science</th>
-                <th>{index.Science}</th>
+                <th>{grade(index.Science, 100)}</th>
               </tr>
               <tr>
                 <th>Gk</th>
-                <th>{index.Gk}</th>
+                <th>{grade(index.Gk, 50)}</th>
               </tr>
               <tr>
                 <th>Dictation</th>
-                <th>{index.Dictation}</th>
+                <th>{grade(index.Dictation, 20)}</th>
               </tr>
               <tr>
                 <th>HandWriting</th>
-                <th>{index.HandWriting}</th>
+                <th>{grade(index.HandWriting, 20)}</th>
               </tr>
               <tr>
                 <th>Drawing</th>
-                <th>{index.Drawing}</th>
+                <th>{grade(index.Drawing, 10)}</th>
               </tr>
             </tbody>
           </table>
