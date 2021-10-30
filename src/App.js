@@ -7,6 +7,7 @@ import One from "./components/One/One";
 import NurseryA from "./components/NurseryA/NurseryA";
 import PlayNursery from "./components/PlayNursery/PlayNursery";
 import KG from "./components/KG/KG";
+import NoFound from "./components/notFound/NotFound";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/nurserya" component={NurseryA} />
         <Route exact path="/playnursery" component={PlayNursery} />
         <Route exact path="/kg" component={KG} />
+        <Route exact component={NoFound} />
       </Switch>
     </Router>
   );
