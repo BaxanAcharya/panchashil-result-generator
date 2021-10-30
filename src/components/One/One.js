@@ -90,8 +90,8 @@ const One = () => {
         </div>
       ) : (
         items && (
-          <div className="container-fluid table-responsive">
-            <table className="table table-hover mt-5 table-bordered">
+          <div className="container-fluid ">
+            <table className="table table-hover mt-5 table-bordered table-responsive">
               <thead>
                 <tr>
                   <th scope="col">Roll No</th>
@@ -312,7 +312,7 @@ const ComponentToPrint = React.forwardRef(
         </div>
 
         <div style={{ marginTop: "-35px" }}>
-          <table className="table table-hover mt-5 table-bordered">
+          <table className="table table-hover mt-5 table-bordered table-responvie">
             <thead>
               <tr>
                 <th scope="col">Subject</th>
