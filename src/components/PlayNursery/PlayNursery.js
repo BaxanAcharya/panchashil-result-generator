@@ -3,7 +3,7 @@ import * as XLSX from "xlsx";
 import LargeLogo from "../../assets/img/Largelogo.png";
 import CircleLogo from "../../assets/img/logo.png";
 import ReactToPrint from "react-to-print";
-import { grade } from "../../utils/Grade";
+import { Gpa, grade } from "../../utils/Grade";
 
 const PlayNursery = () => {
   const [items, setItems] = useState(null);
@@ -16,6 +16,7 @@ const PlayNursery = () => {
 
   const [terminal, setTerminal] = useState("");
   const [year, setYear] = useState("");
+  const [father, setFather] = useState("");
 
   const printRef = useRef();
 
@@ -189,7 +190,7 @@ const PlayNursery = () => {
                       }
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group mb-2">
                     <label htmlFor="year">Year</label>
 
                     <input
@@ -201,6 +202,18 @@ const PlayNursery = () => {
                       onChange={(e) => setYear(e.target.value)}
                     />
                   </div>
+                  <div className="form-group">
+                    <label htmlFor="fathername">Father's Name</label>
+
+                    <input
+                      type="text"
+                      id="fathername"
+                      value={father}
+                      className="form-control"
+                      placeholder="Enter the Father's Name"
+                      onChange={(e) => setFather(e.target.value)}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -209,7 +222,7 @@ const PlayNursery = () => {
                   <button
                     style={{ margin: "0px 37px" }}
                     type="button"
-                    disabled={!myClass || !terminal || !year}
+                    disabled={!myClass || !terminal || !year || !father}
                     className="btn btn-primary btn-block"
                   >
                     Print Marksheet
@@ -225,6 +238,7 @@ const PlayNursery = () => {
                 terminal={terminal}
                 year={year}
                 myClass={myClass}
+                father={father}
                 ref={printRef}
               />
               <div className="modal-footer">
@@ -245,14 +259,21 @@ const PlayNursery = () => {
 };
 
 const ComponentToPrint = React.forwardRef(
-  ({ index, terminal, year, myClass }, ref) => {
+  ({ index, terminal, year, myClass, father }, ref) => {
     return (
-      <div className="container" ref={ref}>
+      <div
+        className="container mt-5"
+        ref={ref}
+        style={{ paddingRight: "10px", paddingLeft: "10px" }}
+      >
         <div className="top-logo-container mb-1">
           <img src={LargeLogo} alt="Large Logo" className="large-logo" />
         </div>
         <div className="d-flex justify-content-center flex-nowrap terminal-text">
           {terminal} TERMINAL EXAMINATION {year}
+        </div>
+        <div>
+          <b>Father's Name- {father}</b>
         </div>
         <div
           className="d-flex mt-2 "
@@ -306,52 +327,72 @@ const ComponentToPrint = React.forwardRef(
           <table className="table table-hover mt-5 table-bordered">
             <thead>
               <tr>
+                <th scope="col">SN</th>
                 <th scope="col">Subject</th>
-                <th scope="col">Marks</th>
+                <th scope="col">Grade</th>
+                <th scope="col">GPA</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <th scope="row">1</th>
                 <th>English</th>
                 <th>{grade(index.English, 100)}</th>
+                <th>{Gpa(index.English, 100)}</th>
               </tr>
               <tr>
+                <th scope="row">2</th>
                 <th>Nepali</th>
                 <th>{grade(index.Nepali, 100)}</th>
+                <th>{Gpa(index.Nepali, 100)}</th>
               </tr>
 
               <tr>
+                <th scope="row">3</th>
                 <th>Math</th>
                 <th>{grade(index.Math, 100)}</th>
+                <th>{Gpa(index.Math, 100)}</th>
               </tr>
 
               <tr>
+                <th scope="row">4</th>
                 <th>Engish Oral</th>
                 <th>{grade(index.EngishOral, 50)}</th>
+                <th>{Gpa(index.EngishOral, 50)}</th>
               </tr>
               <tr>
+                <th scope="row">5</th>
                 <th>Nepali Oral</th>
                 <th>{grade(index.NepaliOral, 50)}</th>
+                <th>{Gpa(index.NepaliOral, 50)}</th>
               </tr>
 
               <tr>
+                <th scope="row">6</th>
                 <th>Drawing</th>
                 <th>{grade(index.Drawing, 25)}</th>
+                <th>{Gpa(index.Drawing, 25)}</th>
               </tr>
 
               <tr>
+                <th scope="row">7</th>
                 <th>Rhymes</th>
                 <th>{grade(index.Rhymes, 25)}</th>
+                <th>{Gpa(index.Rhymes, 25)}</th>
               </tr>
 
               <tr>
+                <th scope="row">8</th>
                 <th>Hygiene</th>
                 <th>{grade(index.Hygiene, 25)}</th>
+                <th>{Gpa(index.Hygiene, 25)}</th>
               </tr>
 
               <tr>
+                <th scope="row">9</th>
                 <th>Conversation Oral</th>
                 <th>{grade(index.ConversationOral, 25)}</th>
+                <th>{Gpa(index.ConversationOral, 25)}</th>
               </tr>
             </tbody>
           </table>
@@ -380,10 +421,14 @@ const ComponentToPrint = React.forwardRef(
 
         <div
           className="d-flex align-items-center container-verify"
-          style={{ justifyContent: "space-between" }}
+          style={{
+            justifyContent: "space-between",
+            paddingRight: "20px",
+            paddingLeft: "20px",
+          }}
         >
           <div>
-            <span>-------------------------</span>
+            <span>-------------------</span>
             <div>Prepared By</div>
           </div>
           <div>
@@ -394,7 +439,7 @@ const ComponentToPrint = React.forwardRef(
             />
           </div>
           <div>
-            <span>-------------------------</span>
+            <span>-------------------</span>
             <div>Principal Sign</div>
           </div>
         </div>
